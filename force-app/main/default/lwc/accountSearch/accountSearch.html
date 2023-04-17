@@ -1,0 +1,29 @@
+<!--
+ * @Author: shylock shylock.wu@moblor.com
+ * @Date: 2023-04-12 14:39:54
+ * @LastEditors: shylock shylock.wu@moblor.com
+ * @LastEditTime: 2023-04-12 14:51:42
+ * @FilePath: /lwcForVisualforceDevs/force-app/main/default/lwc/accountSearch/accountSearch.html
+ * @Description: 
+ * 
+ * Copyright (c) 2023 by ${git_name_email}, All Rights Reserved. 
+-->
+<template>
+  <lightning-card>
+      <lightning-input
+          type="number"
+          label="Number of Employees"
+          value={numberOfEmployees}
+          onchange={handleChange}>
+      </lightning-input>
+      <lightning-button
+          label="Reset"
+          onclick={reset}>
+      </lightning-button>
+      <template lwc:if={accounts.data}>
+        <template for:each={accounts.data} for:item="account">
+             <p key={account.Id}>{account.Name}</p>
+        </template>
+      </template> 
+  </lightning-card>
+</template>
